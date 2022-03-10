@@ -1,0 +1,11 @@
+[project]
+name = "stacker-squares"
+requirements = []
+costs_version = 1
+[contracts.nft-trait]
+path = "contracts/nft-trait.clar"
+depends_on = []
+
+[contracts.stacker-squares]
+path = "contracts/stacker-squares.clar"
+depends_on = ["nft-trait"]
