@@ -8,8 +8,8 @@ export const userSession = new UserSession({ appConfig });
 export function authenticate() {
   showConnect({
     appDetails: {
-      name: 'Todos',
-      icon: window.location.origin + '/logo.svg',
+      name: 'Stacker Squares',
+      icon: window.location.origin + '/logo.png',
     },
     redirectTo: '/',
     onFinish: () => {
