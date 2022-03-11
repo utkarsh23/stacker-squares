@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant ERR-ALL-MINTED u101)
+(define-constant ERR-MINT u102)
 (define-constant CONTRACT-OWNER tx-sender)
 (define-constant ERR-NOT-AUTHORIZED u401)
 (define-constant MINT-LIMIT u1200)
@@ -15,7 +16,31 @@
 
 ;; Claim a new NFT
 (define-public (claim)
-  (mint tx-sender))
+  (begin
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (ok true)
+  )
+)
+
+(define-public (claim-3)
+  (begin
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (ok true)
+  )
+)
+
+(define-public (claim-5)
+  (begin
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (ok true)
+  )
+)
 
 ;; Claim for another address
 (define-public (claim-for (address principal))
@@ -78,7 +103,7 @@
 )
 
 ;; metadata mapping
-(define-map uri uint (string-ascii 256))
+(define-map uri uint (string-ascii 209))
 (map-set uri u1 "QmWM9zzwxJZbr7htruqN9SjwyidEqQaa1VXKPbWQhspfTg")
 (map-set uri u2 "QmSNjeNgA6kZbVuUiPuKzNbxMeRJDMUyqiv5LwKmyP9WRj")
 (map-set uri u3 "QmNc9yEXoXGsffpnapjDDU6vmUgHnj78aHc7VvYdsUP2P8")
