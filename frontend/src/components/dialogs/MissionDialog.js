@@ -57,7 +57,7 @@ class MissionDialog extends Component {
               </li>
             </ul>
             If you're an aspiring artist, DM us on
-            Twitter <a target="_blank" href="https://twitter.com/StackerSquares">@StackerSquares</a> and
+            Twitter <a target="_blank" rel="noreferrer" href="https://twitter.com/StackerSquares">@StackerSquares</a> and
             we promise to help you launch your NFT project.
           </p>
         </div>
