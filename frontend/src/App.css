@@ -181,8 +181,16 @@
   border-radius: 5px;
 }
 
-#how-dialog {
-  width: 80%;
+#how-dialog,
+#mission-dialog {
+  width: 50%;
+  max-height: 80%;
   text-align: left;
   border-radius: 5px;
+}
+
+#how-dialog ol,
+#mission-dialog ul {
+  font-size: 16px;
+  line-height: 1.8;
 }
