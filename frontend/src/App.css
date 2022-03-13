@@ -150,3 +150,39 @@
   margin-bottom: 0px;
   margin-top: 20px;
 }
+
+#mint-dialog {
+  width: 500px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.mdl-dialog__title {
+  font-family: 'Patua One', cursive;
+}
+
+.mdl-dialog__content > p {
+  font-size: 20px;
+}
+
+.mdl-dialog .mdl-button {
+  font-family: 'Patua One', cursive;
+}
+
+.mdl-dialog .mdl-grid .mdl-button {
+  width: 100%;
+  background-color: #e0dcc7 !important;
+  color: #000000 !important;
+}
+
+#mint-confirm-dialog {
+  width: 500px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+#how-dialog {
+  width: 80%;
+  text-align: left;
+  border-radius: 5px;
+}
