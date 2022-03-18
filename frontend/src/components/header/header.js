@@ -54,6 +54,7 @@ class Header extends Component {
       onFinish: (_) => {
         document.querySelector("html").style.overflow = "hidden";
         document.getElementById('mint-confirm-dialog').showModal();
+        document.getElementById('mint-confirm-dialog').scrollTop = 0;
       },
     };
     await openContractCall(options);

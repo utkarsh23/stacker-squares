@@ -11,6 +11,7 @@ class HowDialog extends Component {
     howDialogButton.addEventListener('click', function () {
       howDialog.showModal();
       document.querySelector("html").style.overflow = "hidden";
+      howDialog.scrollTop = 0;
     });
     howDialog.querySelector('.close').addEventListener('click', function () {
       howDialog.close();

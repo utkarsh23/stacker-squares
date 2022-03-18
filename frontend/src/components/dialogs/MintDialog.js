@@ -13,6 +13,7 @@ class MintDialog extends Component {
       mintDialogButton.addEventListener('click', function () {
         mintDialog.showModal();
         document.querySelector("html").style.overflow = "hidden";
+        mintDialog.scrollTop = 0;
       });
       mintDialog.querySelector('.close').addEventListener('click', function () {
         mintDialog.close();

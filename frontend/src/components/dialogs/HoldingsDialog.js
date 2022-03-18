@@ -73,7 +73,7 @@ class HoldingsDialog extends Component {
           <div className="mdl-grid">
             { this.state.images.length > 0 ? (
                 this.state.images.map((img_name, i) => (
-                  <div className="mdl-cell mdl-cell--3-col" key={i}>
+                  <div className="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone" key={i}>
                     <img src={`https://stackersquares.art/collection/${img_name}`} alt="stacker-squares-nft" />
                   </div>
                 ))

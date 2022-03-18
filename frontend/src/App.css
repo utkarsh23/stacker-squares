@@ -234,3 +234,29 @@
 .fa {
   vertical-align: middle;
 }
+
+@media only screen and (max-width: 900px) {
+  .landing-logo {
+    width: 150px;
+  }
+
+  .landing-heading {
+    font-size: 40px;
+  }
+
+  .info-btn-1 {
+    margin: 0px;
+    padding-right: 4px;
+    width: 50%;
+  }
+
+  .info-btn-2 {
+    margin: 0px;
+    padding-left: 4px;
+    width: 50%;
+  }
+
+  dialog {
+    width: 100% !important;
+  }
+}

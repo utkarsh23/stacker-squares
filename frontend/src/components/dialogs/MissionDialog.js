@@ -11,6 +11,7 @@ class MissionDialog extends Component {
     missionDialogButton.addEventListener('click', function () {
       missionDialog.showModal();
       document.querySelector("html").style.overflow = "hidden";
+      missionDialog.scrollTop = 0;
     });
     missionDialog.querySelector('.close').addEventListener('click', function () {
       missionDialog.close();
