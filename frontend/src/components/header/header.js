@@ -5,6 +5,7 @@ import { openContractCall } from "@stacks/connect";
 import { StacksMainnet, StacksMocknet } from "@stacks/network";
 import logo from '../../logo.png';
 import MintDialog from '../dialogs/MintDialog';
+import HoldingsDialog from '../dialogs/HoldingsDialog';
 
 class Header extends Component {
   state = {
@@ -26,7 +27,10 @@ class Header extends Component {
     e.preventDefault();
     document.getElementById('mint-dialog').close();
     document.querySelector("html").style.overflow = "initial";
-    const address = this.state.userData.profile.stxAddress.testnet;
+    let address = this.state.userData.profile.stxAddress.testnet;
+    if (process.env.REACT_APP_ENV === "production") {
+      address = this.state.userData.profile.stxAddress.mainnet;
+    }
     const amount = uintCV(process.env.REACT_APP_NFT_PRICE * noOfNFTs);
     let network = new StacksMocknet({ url: process.env.REACT_APP_STACKS_BASE_URL });
     if (process.env.REACT_APP_ENV === "production") {
@@ -47,10 +51,7 @@ class Header extends Component {
         name: "Stacker Squares",
         icon: window.location.origin + "/logo.png",
       },
-      onFinish: (data) => {
-        console.log("Stacks Transaction:", data.stacksTransaction);
-        console.log("Transaction ID:", data.txId);
-        console.log("Raw transaction:", data.txRaw);
+      onFinish: (_) => {
         document.querySelector("html").style.overflow = "hidden";
         document.getElementById('mint-confirm-dialog').showModal();
       },
@@ -65,6 +66,10 @@ class Header extends Component {
   }
 
   render() {
+    let address = this.state.userData?.profile.stxAddress.testnet;
+    if (process.env.REACT_APP_ENV === "production") {
+      address = this.state.userData?.profile.stxAddress.mainnet;
+    }
     return (
       <>
         <img src={logo} className="landing-logo" alt="logo" />
@@ -75,7 +80,7 @@ class Header extends Component {
               Connect &amp; Get Started
             </button>
             : <div className="mdl-grid connected-wrapper">
-              <div className="wallet-wrapper">Connected Wallet<br />{this.state.userData?.profile.stxAddress.testnet}<hr /></div>
+              <div className="wallet-wrapper">Connected Wallet<br />{address}<hr /></div>
               <div className="mdl-cell mdl-cell--6-col info-btn-1">
                 <button id="mint-dialog-btn" className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored landing-buttons-2">
                   Mint
@@ -100,6 +105,18 @@ class Header extends Component {
             </button>
           </div>
         </div>
+        {
+            userSession.isUserSignedIn() && (
+              <div className="mdl-grid holding-wrapper">
+                <div className="mdl-cell mdl-cell--12-col info-btn-full">
+                  <button id="holdings-dialog-btn" className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored landing-buttons-2">
+                    View Your NFTs
+                  </button>
+                </div>
+                <HoldingsDialog />
+              </div>
+            )
+          }
         <MintDialog handleMint={this.handleMint} />
       </>
     );
