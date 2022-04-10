@@ -65,6 +65,14 @@ class HoldingsDialog extends Component {
     this.setState({ images: this.state.images.concat(ipfsMapping[hash]) });
   }
 
+  showDownload = (_) => {
+    document.querySelector('.download-tint').style.display = 'flex';
+  }
+
+  hideDownload = (_) => {
+    document.querySelector('.download-tint').style.display = 'none';
+  }
+
   render() {
     return (
       <dialog className="mdl-dialog" id="holdings-dialog">
@@ -73,7 +81,16 @@ class HoldingsDialog extends Component {
           <div className="mdl-grid">
             { this.state.images.length > 0 ? (
                 this.state.images.map((img_name, i) => (
-                  <div className="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone" key={i}>
+                  <div
+                    className="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone download-wrapper"
+                    key={i}
+                    onMouseEnter={this.showDownload} onMouseLeave={this.hideDownload}
+                  >
+                    <div className="download-tint">
+                      <a href={`/collection/${img_name}`} download={`${img_name}`}>
+                        <i className="material-icons">file_download</i>
+                      </a>
+                    </div>
                     <img src={`https://stackersquares.art/collection/${img_name}`} alt="stacker-squares-nft" />
                   </div>
                 ))
