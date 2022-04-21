@@ -66,11 +66,17 @@ class HoldingsDialog extends Component {
   }
 
   showDownload = (_) => {
-    document.querySelector('.download-tint').style.display = 'flex';
+    const nodeList = document.querySelectorAll('.download-tint');
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].style.display = 'flex';
+    }
   }
 
   hideDownload = (_) => {
-    document.querySelector('.download-tint').style.display = 'none';
+    const nodeList = document.querySelectorAll('.download-tint');
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].style.display = 'none';
+    }
   }
 
   render() {
