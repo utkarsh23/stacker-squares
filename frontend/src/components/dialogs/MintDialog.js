@@ -46,6 +46,11 @@ class MintDialog extends Component {
                 Mint Five
               </button>
             </div>
+            <div className="mdl-cell mdl-cell--12-col">
+              <button onClick={(e) => this.props.handleMint(e, 'claim-8', 8)} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                Mint Eight
+              </button>
+            </div>
           </div>
         </div>
         <div className="mdl-dialog__actions">
