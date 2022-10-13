@@ -42,6 +42,20 @@
   )
 )
 
+(define-public (claim-8)
+  (begin
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (unwrap! (mint tx-sender) (err ERR-MINT))
+    (ok true)
+  )
+)
+
 ;; Claim for another address
 (define-public (claim-for (address principal))
   (mint address))
